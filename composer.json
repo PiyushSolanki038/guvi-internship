@@ -1,0 +1,11 @@
+{
+  "name": "guvi/internship-project",
+  "description": "GUVI Internship: Register / Login / Profile with MySQL, MongoDB, Redis",
+  "require": {
+    "mongodb/mongodb": "^1.16",
+    "predis/predis": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {}
+  }
+}

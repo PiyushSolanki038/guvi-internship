@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  index.html — Landing page
+  No inline JS. No inline CSS. All in separate files (requirement).
+  Logic: js/index.js | Styles: css/style.css
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUVI — Developer Internship Project</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="home-page">
+
+    <!-- ── Top Nav ──────────────────────────────────────────────────────── -->
+    <nav class="home-nav">
+      <div class="nav-brand">
+        <div class="mark">G</div>
+        <span class="name">GUVI</span>
+      </div>
+      <div class="home-nav-links">
+        <a href="login.html" class="btn-ghost">Sign in</a>
+        <a href="register.html" class="btn-solid">Get started</a>
+      </div>
+    </nav>
+
+    <!-- ── Hero ─────────────────────────────────────────────────────────── -->
+    <section class="home-hero">
+      <div class="tag">
+        <span class="dot"></span>
+        Internship Project — Full Stack
+      </div>
+
+      <h1>Build. Ship.<br /><span>Get hired.</span></h1>
+
+      <p>
+        A complete registration and profile system built with PHP, MySQL,
+        MongoDB and Redis — exactly as the internship spec demands.
+      </p>
+
+      <div class="home-hero-cta">
+        <a href="register.html" class="cta-primary">Create account</a>
+        <a href="login.html" class="cta-secondary">I already have one</a>
+      </div>
+
+      <div class="home-stack">
+        <span class="stack-badge"><span class="sbdot"></span>PHP 8.4</span>
+        <span class="stack-badge"><span class="sbdot"></span>MySQL</span>
+        <span class="stack-badge"><span class="sbdot"></span>MongoDB</span>
+        <span class="stack-badge"><span class="sbdot"></span>Redis</span>
+        <span class="stack-badge"><span class="sbdot"></span>jQuery AJAX</span>
+        <span class="stack-badge"><span class="sbdot"></span>Bootstrap 5</span>
+      </div>
+    </section>
+
+    <!-- ── Footer ───────────────────────────────────────────────────────── -->
+    <footer class="home-footer">
+      <span>GUVI Internship — 2025</span>
+      <span>Register &rarr; Login &rarr; Profile</span>
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

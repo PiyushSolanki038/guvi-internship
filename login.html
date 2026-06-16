@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  login.html — Login page
+  Split layout: left branding panel + right form panel.
+  No inline JS. No inline CSS. Bootstrap form (requirement).
+  Session saved to localStorage only (requirement). Logic in js/login.js.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUVI — Sign In</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="auth-page">
+
+    <!-- ── Left panel ───────────────────────────────────────────────────── -->
+    <aside class="auth-left">
+
+      <div class="auth-brand-mark">
+        <div class="mark">G</div>
+        <span class="name">GUVI</span>
+      </div>
+
+      <div class="auth-left-body">
+        <p class="eyebrow">Step 2 of 3</p>
+        <h2>Good to see<br />you <em>back.</em></h2>
+        <p>
+          Sign in with the email and password you used during registration.
+          Your session is stored securely using Redis.
+        </p>
+      </div>
+
+      <div class="auth-steps">
+        <div class="auth-step">
+          <span class="step-dot"></span>
+          Register
+        </div>
+        <div class="auth-step active">
+          <span class="step-dot"></span>
+          Login
+        </div>
+        <div class="auth-step">
+          <span class="step-dot"></span>
+          Profile
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── Right panel ───────────────────────────────────────────────────── -->
+    <main class="auth-right">
+
+      <div class="auth-form-header">
+        <h1>Welcome back</h1>
+        <p>Enter your credentials to continue.</p>
+      </div>
+
+      <!-- Alert (shown by login.js) -->
+      <div id="alert-box" role="alert"></div>
+
+      <!-- Login form — no action/method; jQuery AJAX handles it (requirement) -->
+      <form id="login-form" novalidate>
+
+        <div class="row g-3">
+
+          <!-- Email -->
+          <div class="col-12">
+            <div class="field-group">
+              <label for="login-email" class="field-label">Email address</label>
+              <input type="email" id="login-email" class="field-input form-control" placeholder="you@example.com" autocomplete="email" required />
+              <div class="field-error invalid-feedback">Enter a valid email.</div>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="col-12">
+            <div class="field-group">
+              <label for="login-password" class="field-label">Password</label>
+              <input type="password" id="login-password" class="field-input form-control" placeholder="Your password" autocomplete="current-password" required />
+              <div class="field-error invalid-feedback">Password is required.</div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="col-12">
+            <button type="button" id="btn-login" class="btn-submit">
+              Sign in
+            </button>
+          </div>
+
+        </div>
+
+      </form>
+
+      <div class="or-divider">or</div>
+
+      <p class="auth-switch">
+        No account yet? <a href="register.html">Register here &rarr;</a>
+      </p>
+
+    </main>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- Login logic (separate JS file — requirement) -->
+  <script src="js/login.js"></script>
+
+</body>
+</html>

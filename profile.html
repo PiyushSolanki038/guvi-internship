@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  profile.html — Profile page (protected)
+  Sidebar layout: avatar/stats card left, editable form right.
+  No inline JS. No inline CSS. Bootstrap grid (requirement).
+  Profile data stored in MongoDB (requirement). Logic in js/profile.js.
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUVI — My Profile</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="profile-page">
+
+    <!-- ── Sticky top bar ───────────────────────────────────────────────── -->
+    <header class="profile-topbar">
+      <a href="index.html" class="topbar-brand">
+        <div class="mark">G</div>
+        <span class="topbar-title">GUVI</span>
+      </a>
+
+      <div class="topbar-right">
+        <div class="topbar-user d-none d-sm-flex">
+          <div class="t-avatar" id="topbar-avatar">U</div>
+          <span>Hello, <strong id="nav-username">User</strong></span>
+        </div>
+        <button id="btn-logout" class="btn-logout">Logout</button>
+      </div>
+    </header>
+
+    <!-- ── Page body ────────────────────────────────────────────────────── -->
+    <div class="profile-body">
+
+      <!-- ── Sidebar ──────────────────────────────────────────────────── -->
+      <aside class="profile-sidebar">
+
+        <!-- Avatar -->
+        <div class="p-avatar" id="avatar-circle">
+          <span id="avatar-initials">U</span>
+        </div>
+
+        <div class="p-name" id="profile-username">User</div>
+        <div class="p-label">Member</div>
+
+        <!-- Quick stat cells -->
+        <div class="sidebar-stats">
+          <div class="stat-cell">
+            <span class="s-value" id="stat-age">—</span>
+            <span class="s-key">Age</span>
+          </div>
+          <div class="stat-cell">
+            <span class="s-value" id="stat-contact">—</span>
+            <span class="s-key">Contact</span>
+          </div>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <p class="sidebar-note">
+          Profile details are stored in MongoDB.<br />
+          Session is verified via Redis on every request.
+        </p>
+
+      </aside>
+
+      <!-- ── Main content ──────────────────────────────────────────────── -->
+      <div class="profile-main">
+
+        <!-- Alert -->
+        <div id="alert-box" role="alert"></div>
+
+        <!-- Loading state — hidden via CSS class, shown by profile.js -->
+        <div id="profile-loading" class="loading-card hidden-section">
+          <div class="loading-spinner"></div>
+          <p>Fetching your profile from MongoDB…</p>
+        </div>
+
+        <!-- Form section — hidden until data loads -->
+        <div id="profile-form-section" class="hidden-section">
+
+          <!-- Personal details card -->
+          <div class="section-card">
+
+            <div class="section-card-header">
+              <div>
+                <div class="section-heading-wrap">
+                  <span class="accent-dot"></span>
+                  <h2>Personal Details</h2>
+                </div>
+                <p>Update your information and hit Save.</p>
+              </div>
+            </div>
+
+            <!-- Bootstrap responsive grid (requirement) -->
+            <div class="profile-grid">
+
+              <!-- Age -->
+              <div class="field-group">
+                <label for="field-age" class="field-label">Age</label>
+                <input type="number" id="field-age" class="field-input form-control" placeholder="e.g. 22" min="1" max="120" />
+              </div>
+
+              <!-- Date of birth -->
+              <div class="field-group">
+                <label for="field-dob" class="field-label">Date of Birth</label>
+                <input type="date" id="field-dob" class="field-input form-control" />
+              </div>
+
+              <!-- Contact number -->
+              <div class="field-group">
+                <label for="field-contact" class="field-label">Contact Number</label>
+                <input type="tel" id="field-contact" class="field-input form-control" placeholder="+91 98765 43210" maxlength="15" />
+              </div>
+
+              <!-- Avatar photo upload -->
+              <div class="field-group">
+                <label class="field-label">
+                  Photo
+                  <span class="avatar-optional">optional</span>
+                </label>
+                <div class="avatar-upload-wrap">
+                  <div class="avatar-preview" id="avatar-preview">
+                    <span id="avatar-preview-initials">U</span>
+                  </div>
+                  <div class="avatar-upload-right">
+                    <label for="field-avatar" class="btn-upload-photo">
+                      Choose photo
+                    </label>
+                    <input type="file" id="field-avatar" accept="image/*" class="avatar-file-input" />
+                    <p class="avatar-hint">JPG, PNG or GIF — max 2 MB</p>
+                    <button type="button" id="btn-remove-avatar" class="btn-remove-photo hidden-section">
+                      Remove photo
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Address — spans full width -->
+              <div class="field-group span-2">
+                <label for="field-address" class="field-label">Address</label>
+                <input type="text" id="field-address" class="field-input form-control" placeholder="Street, City, State, Country" maxlength="200" />
+              </div>
+
+              <!-- Bio — spans full width -->
+              <div class="field-group span-2">
+                <label for="field-bio" class="field-label">Bio</label>
+                <textarea id="field-bio" class="field-input form-control" placeholder="A short intro about yourself…" maxlength="500"></textarea>
+              </div>
+
+            </div>
+
+            <!-- Save row -->
+            <div class="form-actions">
+              <span id="save-status" class="save-status-text"></span>
+              <button type="button" id="btn-save-profile" class="btn-save">
+                Save changes
+              </button>
+            </div>
+
+          </div>
+          <!-- /section-card -->
+
+        </div>
+        <!-- /profile-form-section -->
+
+      </div>
+      <!-- /profile-main -->
+
+    </div>
+    <!-- /profile-body -->
+
+  </div>
+  <!-- /profile-page -->
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- Profile logic (separate JS file — requirement) -->
+  <script src="js/profile.js"></script>
+
+</body>
+</html>

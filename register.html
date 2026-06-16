@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  register.html — Registration page
+  Split layout: left branding panel + right form panel.
+  No inline JS. No inline CSS. Bootstrap form (requirement).
+  All AJAX logic in js/register.js (requirement).
+-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GUVI — Create Account</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="auth-page">
+
+    <!-- ── Left panel ───────────────────────────────────────────────────── -->
+    <aside class="auth-left">
+
+      <!-- Brand -->
+      <div class="auth-brand-mark">
+        <div class="mark">G</div>
+        <span class="name">GUVI</span>
+      </div>
+
+      <!-- Headline copy -->
+      <div class="auth-left-body">
+        <p class="eyebrow">Step 1 of 3</p>
+        <h2>Create your<br /><em>account</em> first.</h2>
+        <p>
+          Fill in your name, email and a password. Once registered you can
+          log in and build out your profile.
+        </p>
+      </div>
+
+      <!-- Flow indicator -->
+      <div class="auth-steps">
+        <div class="auth-step active">
+          <span class="step-dot"></span>
+          Register
+        </div>
+        <div class="auth-step">
+          <span class="step-dot"></span>
+          Login
+        </div>
+        <div class="auth-step">
+          <span class="step-dot"></span>
+          Profile
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ── Right panel (form) ────────────────────────────────────────────── -->
+    <main class="auth-right">
+
+      <div class="auth-form-header">
+        <h1>Sign up</h1>
+        <p>All fields are required to create your account.</p>
+      </div>
+
+      <!-- Alert (shown by register.js) -->
+      <div id="alert-box" role="alert"></div>
+
+      <!-- Form — no action/method; jQuery AJAX submits (requirement) -->
+      <form id="register-form" novalidate autocomplete="off">
+
+        <!-- Bootstrap row: two columns on md+ -->
+        <div class="row g-3">
+
+          <!-- Full name -->
+          <div class="col-12">
+            <div class="field-group">
+              <label for="username" class="field-label">Full name</label>
+              <input type="text" id="username" class="field-input form-control" placeholder="e.g. Piyush Solanki" maxlength="80" required />
+              <div class="field-error invalid-feedback">Minimum 3 characters.</div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-12">
+            <div class="field-group">
+              <label for="email" class="field-label">Email address</label>
+              <input type="email" id="email" class="field-input form-control" placeholder="you@example.com" required />
+              <div class="field-error invalid-feedback">Enter a valid email.</div>
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="col-md-6">
+            <div class="field-group">
+              <label for="password" class="field-label">Password</label>
+              <input type="password" id="password" class="field-input form-control" placeholder="Min. 6 characters" autocomplete="new-password" required />
+              <div class="field-error invalid-feedback">At least 6 characters.</div>
+            </div>
+          </div>
+
+          <!-- Confirm password -->
+          <div class="col-md-6">
+            <div class="field-group">
+              <label for="confirm-password" class="field-label">Confirm password</label>
+              <input type="password" id="confirm-password" class="field-input form-control" placeholder="Repeat password" autocomplete="new-password" required />
+              <div class="field-error invalid-feedback">Passwords don't match.</div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <div class="col-12">
+            <button type="button" id="btn-register" class="btn-submit">
+              Create account
+            </button>
+          </div>
+
+        </div>
+
+      </form>
+
+      <div class="or-divider">or</div>
+
+      <p class="auth-switch">
+        Already registered? <a href="login.html">Sign in &rarr;</a>
+      </p>
+
+    </main>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <!-- Registration logic (separate JS file — requirement) -->
+  <script src="js/register.js"></script>
+
+</body>
+</html>
