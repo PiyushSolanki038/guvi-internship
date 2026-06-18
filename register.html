@@ -2,7 +2,6 @@
 <html lang="en">
 <!--
   register.html — Registration page
-  Split layout: left branding panel + right form panel.
   No inline JS. No inline CSS. Bootstrap form (requirement).
   All AJAX logic in js/register.js (requirement).
 -->
@@ -17,113 +16,87 @@
 
   <div class="auth-page">
 
-    <!-- ── Left panel ───────────────────────────────────────────────────── -->
-    <aside class="auth-left">
-
-      <!-- Brand -->
-      <div class="auth-brand-mark">
-        <div class="mark">G</div>
-        <span class="name">GUVI</span>
-      </div>
-
-      <!-- Headline copy -->
-      <div class="auth-left-body">
-        <p class="eyebrow">Step 1 of 3</p>
-        <h2>Create your<br /><em>account</em> first.</h2>
-        <p>
-          Fill in your name, email and a password. Once registered you can
-          log in and build out your profile.
-        </p>
-      </div>
-
-      <!-- Flow indicator -->
+    <!-- ── Top bar with step indicator ─────────────────────────────────── -->
+    <header class="auth-topbar">
+      <a href="index.html" class="nav-brand">GUVI</a>
       <div class="auth-steps">
-        <div class="auth-step active">
-          <span class="step-dot"></span>
-          Register
-        </div>
-        <div class="auth-step">
-          <span class="step-dot"></span>
-          Login
-        </div>
-        <div class="auth-step">
-          <span class="step-dot"></span>
-          Profile
-        </div>
+        <span class="auth-step active"><span class="step-num">1</span>Register</span>
+        <span class="auth-step"><span class="step-num">2</span>Login</span>
+        <span class="auth-step"><span class="step-num">3</span>Profile</span>
       </div>
+    </header>
 
-    </aside>
+    <!-- ── Form ─────────────────────────────────────────────────────────── -->
+    <main class="auth-body">
+      <div class="auth-card">
 
-    <!-- ── Right panel (form) ────────────────────────────────────────────── -->
-    <main class="auth-right">
-
-      <div class="auth-form-header">
-        <h1>Sign up</h1>
-        <p>All fields are required to create your account.</p>
-      </div>
-
-      <!-- Alert (shown by register.js) -->
-      <div id="alert-box" role="alert"></div>
-
-      <!-- Form — no action/method; jQuery AJAX submits (requirement) -->
-      <form id="register-form" novalidate autocomplete="off">
-
-        <!-- Bootstrap row: two columns on md+ -->
-        <div class="row g-3">
-
-          <!-- Full name -->
-          <div class="col-12">
-            <div class="field-group">
-              <label for="username" class="field-label">Full name</label>
-              <input type="text" id="username" class="field-input form-control" placeholder="e.g. Piyush Solanki" maxlength="80" required />
-              <div class="field-error invalid-feedback">Minimum 3 characters.</div>
-            </div>
-          </div>
-
-          <!-- Email -->
-          <div class="col-12">
-            <div class="field-group">
-              <label for="email" class="field-label">Email address</label>
-              <input type="email" id="email" class="field-input form-control" placeholder="you@example.com" required />
-              <div class="field-error invalid-feedback">Enter a valid email.</div>
-            </div>
-          </div>
-
-          <!-- Password -->
-          <div class="col-md-6">
-            <div class="field-group">
-              <label for="password" class="field-label">Password</label>
-              <input type="password" id="password" class="field-input form-control" placeholder="Min. 6 characters" autocomplete="new-password" required />
-              <div class="field-error invalid-feedback">At least 6 characters.</div>
-            </div>
-          </div>
-
-          <!-- Confirm password -->
-          <div class="col-md-6">
-            <div class="field-group">
-              <label for="confirm-password" class="field-label">Confirm password</label>
-              <input type="password" id="confirm-password" class="field-input form-control" placeholder="Repeat password" autocomplete="new-password" required />
-              <div class="field-error invalid-feedback">Passwords don't match.</div>
-            </div>
-          </div>
-
-          <!-- Submit -->
-          <div class="col-12">
-            <button type="button" id="btn-register" class="btn-submit">
-              Create account
-            </button>
-          </div>
-
+        <div class="auth-form-header">
+          <h1>Create your account</h1>
+          <p>All fields are required to get started.</p>
         </div>
 
-      </form>
+        <!-- Alert (shown by register.js) -->
+        <div id="alert-box" role="alert"></div>
 
-      <div class="or-divider">or</div>
+        <!-- Form — no action/method; jQuery AJAX submits (requirement) -->
+        <form id="register-form" novalidate autocomplete="off">
 
-      <p class="auth-switch">
-        Already registered? <a href="login.html">Sign in &rarr;</a>
-      </p>
+          <div class="row g-3">
 
+            <!-- Full name -->
+            <div class="col-12">
+              <div class="field-group">
+                <label for="username" class="field-label">Full name</label>
+                <input type="text" id="username" class="field-input form-control" placeholder="e.g. Piyush Solanki" maxlength="80" required />
+                <div class="field-error invalid-feedback">Minimum 3 characters.</div>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="col-12">
+              <div class="field-group">
+                <label for="email" class="field-label">Email address</label>
+                <input type="email" id="email" class="field-input form-control" placeholder="you@example.com" required />
+                <div class="field-error invalid-feedback">Enter a valid email.</div>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="col-md-6">
+              <div class="field-group">
+                <label for="password" class="field-label">Password</label>
+                <input type="password" id="password" class="field-input form-control" placeholder="Min. 6 characters" autocomplete="new-password" required />
+                <div class="field-error invalid-feedback">At least 6 characters.</div>
+              </div>
+            </div>
+
+            <!-- Confirm password -->
+            <div class="col-md-6">
+              <div class="field-group">
+                <label for="confirm-password" class="field-label">Confirm password</label>
+                <input type="password" id="confirm-password" class="field-input form-control" placeholder="Repeat password" autocomplete="new-password" required />
+                <div class="field-error invalid-feedback">Passwords don't match.</div>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="col-12">
+              <button type="button" id="btn-register" class="btn-submit">
+                Create account
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+
+        <div class="or-divider">or</div>
+
+        <p class="auth-switch">
+          Already registered? <a href="login.html">Sign in &rarr;</a>
+        </p>
+
+      </div>
     </main>
 
   </div>

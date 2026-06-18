@@ -3,7 +3,6 @@
 <!--
   index.html — Landing page
   No inline JS. No inline CSS. All in separate files (requirement).
-  Logic: js/index.js | Styles: css/style.css
 -->
 <head>
   <meta charset="UTF-8" />
@@ -18,10 +17,7 @@
 
     <!-- ── Top Nav ──────────────────────────────────────────────────────── -->
     <nav class="home-nav">
-      <div class="nav-brand">
-        <div class="mark">G</div>
-        <span class="name">GUVI</span>
-      </div>
+      <div class="nav-brand">GUVI</div>
       <div class="home-nav-links">
         <a href="login.html" class="btn-ghost">Sign in</a>
         <a href="register.html" class="btn-solid">Get started</a>
@@ -30,36 +26,61 @@
 
     <!-- ── Hero ─────────────────────────────────────────────────────────── -->
     <section class="home-hero">
-      <div class="tag">
-        <span class="dot"></span>
-        Internship Project — Full Stack
+
+      <div>
+        <span class="label-tag">Internship Project — Full Stack</span>
+
+        <h1>Build.<span class="rule-break">Ship. Get hired.</span></h1>
+
+        <p>
+          A complete registration and profile system built with PHP, MySQL,
+          MongoDB and Redis — exactly as the internship spec demands.
+        </p>
+
+        <div class="home-hero-cta">
+          <a href="register.html" class="cta-primary">Create account</a>
+          <a href="login.html" class="cta-secondary">I already have one</a>
+        </div>
+
+        <div class="home-stack">
+          <span class="stack-badge">PHP 8.4</span>
+          <span class="stack-badge">MySQL</span>
+          <span class="stack-badge">MongoDB</span>
+          <span class="stack-badge">Redis</span>
+          <span class="stack-badge">jQuery AJAX</span>
+          <span class="stack-badge">Bootstrap 5</span>
+        </div>
       </div>
 
-      <h1>Build. Ship.<br /><span>Get hired.</span></h1>
-
-      <p>
-        A complete registration and profile system built with PHP, MySQL,
-        MongoDB and Redis — exactly as the internship spec demands.
-      </p>
-
-      <div class="home-hero-cta">
-        <a href="register.html" class="cta-primary">Create account</a>
-        <a href="login.html" class="cta-secondary">I already have one</a>
+      <div class="home-flow">
+        <div class="flow-item">
+          <span class="flow-num">01</span>
+          <div class="flow-text">
+            <strong>Register</strong>
+            <span>Create an account with name, email and password — stored in MySQL using prepared statements.</span>
+          </div>
+        </div>
+        <div class="flow-item">
+          <span class="flow-num">02</span>
+          <div class="flow-text">
+            <strong>Login</strong>
+            <span>Sign in and receive a session token, verified server-side via Redis on every request.</span>
+          </div>
+        </div>
+        <div class="flow-item">
+          <span class="flow-num">03</span>
+          <div class="flow-text">
+            <strong>Profile</strong>
+            <span>Add age, date of birth, contact and a photo — saved to MongoDB and editable anytime.</span>
+          </div>
+        </div>
       </div>
 
-      <div class="home-stack">
-        <span class="stack-badge"><span class="sbdot"></span>PHP 8.4</span>
-        <span class="stack-badge"><span class="sbdot"></span>MySQL</span>
-        <span class="stack-badge"><span class="sbdot"></span>MongoDB</span>
-        <span class="stack-badge"><span class="sbdot"></span>Redis</span>
-        <span class="stack-badge"><span class="sbdot"></span>jQuery AJAX</span>
-        <span class="stack-badge"><span class="sbdot"></span>Bootstrap 5</span>
-      </div>
     </section>
 
     <!-- ── Footer ───────────────────────────────────────────────────────── -->
     <footer class="home-footer">
-      <span>GUVI Internship — 2025</span>
+      <span>GUVI Internship — 2026</span>
       <span>Register &rarr; Login &rarr; Profile</span>
     </footer>
 

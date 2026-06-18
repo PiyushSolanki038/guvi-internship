@@ -2,7 +2,6 @@
 <html lang="en">
 <!--
   profile.html — Profile page (protected)
-  Sidebar layout: avatar/stats card left, editable form right.
   No inline JS. No inline CSS. Bootstrap grid (requirement).
   Profile data stored in MongoDB (requirement). Logic in js/profile.js.
 -->
@@ -19,10 +18,7 @@
 
     <!-- ── Sticky top bar ───────────────────────────────────────────────── -->
     <header class="profile-topbar">
-      <a href="index.html" class="topbar-brand">
-        <div class="mark">G</div>
-        <span class="topbar-title">GUVI</span>
-      </a>
+      <a href="index.html" class="topbar-brand topbar-title">GUVI</a>
 
       <div class="topbar-right">
         <div class="topbar-user d-none d-sm-flex">
@@ -59,8 +55,6 @@
           </div>
         </div>
 
-        <div class="sidebar-divider"></div>
-
         <p class="sidebar-note">
           Profile details are stored in MongoDB.<br />
           Session is verified via Redis on every request.
@@ -87,13 +81,11 @@
           <div class="section-card">
 
             <div class="section-card-header">
-              <div>
-                <div class="section-heading-wrap">
-                  <span class="accent-dot"></span>
-                  <h2>Personal Details</h2>
-                </div>
-                <p>Update your information and hit Save.</p>
+              <div class="section-heading-wrap">
+                <span class="accent-dot"></span>
+                <h2>Personal Details</h2>
               </div>
+              <p>Update your information and hit Save.</p>
             </div>
 
             <!-- Bootstrap responsive grid (requirement) -->
