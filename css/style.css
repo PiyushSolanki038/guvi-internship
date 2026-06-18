@@ -246,6 +246,25 @@ a { color: inherit; text-decoration: none; }
   font-size: 1.0625rem;
 }
 
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink-2);
+  transition: color 0.15s;
+}
+
+.back-home:hover { color: var(--black); }
+
+.back-home-icon {
+  flex-shrink: 0;
+  transition: transform 0.15s;
+}
+
+.back-home:hover .back-home-icon { transform: translateX(-2px); }
+
 .auth-topbar .auth-steps {
   display: flex;
   gap: 1.75rem;
