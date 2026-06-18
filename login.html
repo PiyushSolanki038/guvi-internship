@@ -18,13 +18,15 @@
 
     <!-- ── Top bar with step indicator ─────────────────────────────────── -->
     <header class="auth-topbar">
-      <a href="index.html" class="back-home">
-        <svg class="back-home-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="19" y1="12" x2="5" y2="12"></line>
-          <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        Back to home
-      </a>
+      <div class="topbar-left">
+        <a href="index.html" class="back-icon-btn" aria-label="Back to home">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+        <a href="index.html" class="nav-brand">GUVI</a>
+      </div>
       <div class="auth-steps">
         <span class="auth-step"><span class="step-num">1</span>Register</span>
         <span class="auth-step active"><span class="step-num">2</span>Login</span>
